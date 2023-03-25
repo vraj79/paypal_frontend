@@ -1,9 +1,10 @@
 import { Box, useToast } from "@chakra-ui/react";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const name = localStorage.getItem("name");
+  const navigate=useNavigate()
   const toast = useToast();
   const handleLogout = () => {
     localStorage.clear();
@@ -14,6 +15,9 @@ const Navbar = () => {
       isClosable: true,
       position: "bottom",
     });
+    setTimeout(() => {
+      navigate("/")
+    }, 1500);
     setTimeout(() => {
       window.location.reload();
     }, 2000);

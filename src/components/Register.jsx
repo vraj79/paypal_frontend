@@ -60,6 +60,18 @@ export const Register = () => {
         { name, email, password },
         config
       );
+      console.log(res)
+      if(res.data==="user already exists"){
+        window.location.reload()
+        toast({
+          title: "User already exists",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+          position: "bottom",
+        });
+        return
+      }
       toast({
         title: "Registration Successful!",
         status: "success",
@@ -74,7 +86,7 @@ export const Register = () => {
     } catch (err) {
       toast({
         title: "Error Occured!",
-        status: err.response.data.message,
+        status: err.message,
         duration: 5000,
         isClosable: true,
         position: "bottom",

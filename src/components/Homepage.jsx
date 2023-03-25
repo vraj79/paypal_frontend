@@ -16,7 +16,7 @@ import { Register } from "./Register";
 export const Homepage = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("token")) || null;
+    const token = (localStorage.getItem("token")) || null;
 
     if (token) {
       navigate("/dashboard");
