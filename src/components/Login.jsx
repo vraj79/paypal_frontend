@@ -34,8 +34,7 @@ import {
         return;
       }
       try {
-        const res=await axios.post("https://wild-mite-shrug.cyclic.app/user/login",{email,password})
-        console.log(res)
+        const res=await axios.post("http://localhost:8080/user/login",{email,password})
         if(res.status===200){
             toast({
               title: "Login Successful!",
@@ -47,6 +46,7 @@ import {
             navigate("/dashboard");
         }
         localStorage.setItem("token", JSON.stringify(res.data.token));
+        localStorage.setItem("name", (res.data.name));
         setLoading(false);
       } catch (err) {
         toast({

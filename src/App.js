@@ -5,6 +5,9 @@ import { Login } from './components/Login';
 import { Register } from './components/Register';
 import { Homepage } from './components/Homepage';
 import Dashboard from './components/Dashboard';
+import SingleTask from './components/SingleTask';
+import AddTask from './components/AddTask';
+import Navbar from './components/Navbar';
 
 const MainRoutes=()=>{
   return (
@@ -12,7 +15,14 @@ const MainRoutes=()=>{
       <Route path="/" element={<Homepage/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/register" element={<Register/>}/>
-      <Route path="/dashboard" element={<Dashboard/>}/>
+      <Route path="/dashboard" element={
+        <>
+        <Navbar/>
+      <Dashboard/>
+      </>
+      }/>
+      <Route path="/task/:id" element={<SingleTask/>}/>
+      <Route path="/task/add" element={<AddTask/>}/>
     </Routes>
   )
 }
