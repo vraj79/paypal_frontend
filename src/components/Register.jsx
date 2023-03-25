@@ -60,18 +60,17 @@ export const Register = () => {
         { name, email, password },
         config
       );
-      if (res.status === 201) {
-        toast({
-          title: "Registration Successful!",
-          status: "success",
-          duration: 5000,
-          isClosable: true,
-          position: "bottom",
-        });
-        localStorage.setItem("token", JSON.stringify(res.data.token));
-        setLoading(false);
-        navigate("/dashboard");
-      }
+      toast({
+        title: "Registration Successful!",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      localStorage.setItem("token", JSON.stringify(res.data.token));
+      localStorage.setItem("name", JSON.stringify(res.data.name));
+      setLoading(false);
+      navigate("/dashboard");
     } catch (err) {
       toast({
         title: "Error Occured!",

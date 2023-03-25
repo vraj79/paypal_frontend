@@ -21,7 +21,6 @@ export const Homepage = () => {
     if (token) {
       navigate("/dashboard");
     }
-    
   }, [navigate]);
 
   return (

@@ -27,7 +27,7 @@ const AddTask = () => {
   }, []);
 
   const navigate = useNavigate();
-  const toast=useToast()
+  const toast = useToast();
 
   const updateTask = async () => {
     const data = {
@@ -39,19 +39,20 @@ const AddTask = () => {
       status,
     };
 
-    const res = await axios.post(`http://localhost:8080/task`, data);
-    if (res.status === 201) {
-      toast({
-        title: "Task is in creation phase.Plz wait for a sec",
-        status: "success",
-        duration: 1900,
-        isClosable: true,
-        position: "bottom",
-      });
-      setTimeout(() => {
-        navigate("/dashboard");
-      }, 2000);
-    }
+    const res = await axios.post(
+      `https://wild-mite-shrug.cyclic.app/task`,
+      data
+    );
+    toast({
+      title: "Task is in creation phase.Plz wait for a sec",
+      status: "success",
+      duration: 1900,
+      isClosable: true,
+      position: "bottom",
+    });
+    setTimeout(() => {
+      navigate("/dashboard");
+    }, 2000);
   };
 
   return (
