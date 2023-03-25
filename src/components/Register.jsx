@@ -68,7 +68,7 @@ export const Register = () => {
         position: "bottom",
       });
       localStorage.setItem("token", JSON.stringify(res.data.token));
-      localStorage.setItem("name", JSON.stringify(res.data.name));
+      localStorage.setItem("name", JSON.stringify(res.data.user.name));
       setLoading(false);
       navigate("/dashboard");
     } catch (err) {
